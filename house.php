@@ -44,10 +44,29 @@ function calculateDiscount() {
     return array($isDiscounted, $discountPercent);
 }
 
+function generateHouses($numHouses) {
+    $houses = [];
+    for ($i = 0; $i < $numHouses; $i++) {
+        // Створення об'єкта будинку
+        $house = new House(200000, "Cozy Cottage", "123 Main St", "555-1234", "cottage.jpg", 2, 1);
+        // Заповнення атрибутів будинку (назва, адреса, ціна і т.д.)
+        // Додавання будинку до масиву
+        $houses[] = $house;
+    }
+    return $houses;
+}
+
+// Отримання кількості будинків з параметру $_GET['houses']
+$numHouses = isset($_GET['houses']) ? $_GET['houses'] : 3;
+
+// Генерація об'єктів будинків за заданою кількістю
+$generatedHouses = generateHouses($numHouses);
+
+
 // Створення об'єктів будинків
-$house1 = new House(200000, "Cozy Cottage", "123 Main St", "555-1234", "cottage.jpg", 2, 1);
-$house2 = new House(300000, "Modern Mansion", "456 Park Ave", "555-5678", "mansion.jpg", 5, 4);
-$house3 = new House(150000, "Rustic Retreat", "789 Elm St", "555-9012", "retreat.jpg", 3, 2);
+// $house1 = new House(200000, "Cozy Cottage", "123 Main St", "555-1234", "cottage.jpg", 2, 1);
+// $house2 = new House(300000, "Modern Mansion", "456 Park Ave", "555-5678", "mansion.jpg", 5, 4);
+// $house3 = new House(150000, "Rustic Retreat", "789 Elm St", "555-9012", "retreat.jpg", 3, 2);
 
 // // Виведення об'єктів будинків у секцію
 // echo "<section>";
@@ -55,6 +74,13 @@ $house3 = new House(150000, "Rustic Retreat", "789 Elm St", "555-9012", "retreat
 // $house2->displayHouseInfo();
 // $house3->displayHouseInfo();
 // echo "</section>";
+
+// Отримання кількості будинків з параметру $_GET['houses']
+$numHouses = isset($_GET['houses']) ? $_GET['houses'] : 3;
+
+// Генерація об'єктів будинків за заданою кількістю
+$generatedHouses = generateHouses($numHouses);
+
 
 // Виведення об'єктів будинків у секцію
 echo "<section>";
@@ -75,5 +101,3 @@ foreach ($houses as $house) {
 }
 echo "</section>";
 ?>
-
-
